@@ -1,0 +1,128 @@
+djbdns (1:1.05-1) unstable; urgency=low
+
+  * debian/implicit: add proper dependencies to support 'parallel build'
+    through make -j (thx Daniel Schepler for the patch).
+  * debian/changelog: add epoch 1 to supersede unofficial package.
+  * debian/rules: remove target configure:; use glibc by default instead
+    of dietlibc; install programs into /usr/bin/.
+  * debian/gcc/: remove; obsolete.
+  * debian/control: no longer Build-Depends: dietlibc-dev.
+  * debian/rules: run dpkg-shlibdeps; remove debian/substvars in target
+    clean:.
+  * debian/rules: use 'gcc -O2 -g -include /usr/include/errno.h' for
+    conf-cc.
+  * debian/diff/0001-hier.c-don-t-install-etc-dnsroots.global.diff: new;
+    hier.c: don't install /etc/dnsroots.global.
+  * debian/rules: new target patch: apply patches from debian/diff/;
+    reverse apply in target clean:.
+  * debian/rules: target install: force-remove install, instcheck before
+    rebuilding to avoid race.
+  * debian/rules: fix up directory permissions /usr/, /usr/bin/.
+  * debian/control: remove reference to unofficial packages from the
+    description.
+  * debian/control: no longer Recommends: djbdns-doc; no longer Depends:
+    daemontools, ucspi-tcp, make, but Recommends: them; Recommends:
+    daemontools-run | runit; Depends: ${shlibs:Depends}.
+  * debian/djbdns-man/: new; add manpages downloaded from
+    http://smarden.org/pape/djb/manpages/djbdns-1.05-man-20031023.tar.gz.
+  * debian/rules: install manpages from debian/djbdns-man/ into
+    /usr/share/man/man1/ and /usr/share/man/man8/.
+  * debian/copyright: rewrite copyright.
+  * debian/djbdns.README.Debian: redo.
+  * debian/control: Standards-Version: 3.7.2.2.
+  * debian/rules: install updated debian/dnsroots.global, instead of
+    upstream's.
+  * debian/control: update short and long description.
+  * upload to Debian/main (closes: #453680).
+  * debian/djbdns.README.Debian: add note about daemontools' default
+    directory for services is /etc/service/.
+  * debian/djbdns.NEWS.Debian: new; package introduced to Debian/main,
+    mention how to put on hold if upgrade from non-free is not desired.
+  * debian/djbdns-man/dnsipq.1, debian/djbdns-man/dnstxt.1: typo.
+  * debian/control: Replaces: djbdns-doc.
+
+ -- Gerrit Pape <pape@smarden.org>  Tue, 26 Feb 2008 20:54:59 +0000
+
+djbdns (1.05-zarge2) sarge; urgency=low
+
+  * build against sarge's dietlibc-dev (0.28-3).
+
+ -- Gerrit Pape <pape@smarden.org>  Thu, 26 May 2005 19:03:38 +0000
+
+djbdns (1.05-zarge1) sarge; urgency=low
+
+  * debian/rules: minor cleanup.
+  * debian/implicit: update to revision 1.10.
+  * debian/djbdns.conffiles: new; /etc/dnsroots.global.
+  * debian/control: typo in description.
+
+ -- Gerrit Pape <pape@smarden.org>  Wed, 18 Aug 2004 14:35:29 +0000
+
+djbdns (1.05-zarge0.4) sarge; urgency=low
+
+  * debian/control: Depends: make (thx Thomas Mangin); no longer
+    Build-Depends: dephelper; remove Standards-Version.
+  * debian/rules: stop using debhelper, use implicit rules.
+  * debian/implicit: new; implicit Makefile rules.
+  * debian/README.Debian, debian/docs: rename to debian/ucspi-tcp.*.
+  * debian/dirs: remove; obsolete.
+  * debian/copyright: minor.
+
+ -- Gerrit Pape <pape@smarden.org>  Wed, 10 Mar 2004 08:23:22 +0000
+
+djbdns (1.05-zarge0.2) sarge; urgency=low
+
+  * use diet libc.
+  * debian/rules: set up diet program as c compiler wrapper; conditionally
+    overwrite PATH to have diet program used as c compiler wrapper; minor
+    cleanup.
+  * debian/gcc/gcc*: new; diet program as c compiler wrapper.
+  * debian/control: Build-Depends: dietlibc-dev; no longer Depends:
+    ${shlibs:Depends}; minor cleanup.
+
+ -- Gerrit Pape <pape@smarden.org>  Wed, 12 Nov 2003 13:19:10 +0000
+
+djbdns (1.05-woody1) woody; urgency=low
+
+  * bump version for release.
+
+ -- Gerrit Pape <pape@smarden.org>  Tue,  9 Jul 2002 11:05:16 +0200
+
+djbdns (1.05-woody0.1) woody; urgency=low
+
+  * woody package; new Standards-Version: 3.5.2.
+
+ -- Gerrit Pape <pape@smarden.org>  Mon, 15 Oct 2001 11:49:50 +0200
+
+djbdns (1.05-1) stable; urgency=low
+
+  * new upstream version 1.05.
+  * switched to _recommend_ djbdns-doc (not depend on).
+  * dist stable.
+
+ -- Gerrit Pape <pape@innominate.com>  Mon, 12 Feb 2001 14:55:09 +0100
+
+djbdns (1.04-1) unstable; urgency=low
+
+  * new upstream version 1.04.
+
+ -- Gerrit Pape <pape@innominate.com>  Mon, 22 Jan 2001 10:50:51 +0100
+
+djbdns (1.03-1) unstable; urgency=low
+
+  * new upstream version 1.03.
+
+ -- Gerrit Pape <pape@innominate.com>  Mon,  8 Jan 2001 23:29:43 +0100
+
+djbdns (1.02-0.2) unstable; urgency=low
+
+  * dependencies, cleanup.
+
+ -- Gerrit Pape <pape@innominate.com>  Mon, 18 Dec 2000 11:32:59 +0100
+
+djbdns (1.02-0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Gerrit Pape <pape@innominate.de>  Wed,  8 Nov 2000 10:21:36 +0100
+

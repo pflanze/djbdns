@@ -1,0 +1,20 @@
+djbdns (1:1.05-1) unstable; urgency=low
+
+  With the djbdns package being put into the public domain by the
+  upstream author, djbdns is now available as binary package in
+  Debian/main.
+
+  Please note that this new binary package differs from the package
+  created through the djbdns-installer package available in
+  Debian/non-free; most notably this package depends on a different
+  version of the daemontools package.
+  
+  djbdns-installer is still available, if you don't want to upgrade to
+  the new binary package, you should stop the installation, make sure
+  the djbdns-installer package is installed, and put djbdns on hold, as
+  described in
+
+   http://www.debian.org/doc/FAQ/ch-pkg_basics.en.html#s-puttingonhold
+  
+ -- Gerrit Pape <pape@smarden.org>  Mon, 25 Feb 2008 21:44:02 +0000
+

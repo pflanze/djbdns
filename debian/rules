@@ -1,0 +1,81 @@
+#!/usr/bin/make -f
+
+STRIP =strip
+ifneq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+  STRIP =: nostrip
+endif
+
+DIR=$(shell pwd)/debian/djbdns
+
+patch: deb-checkdir patch-stamp
+patch-stamp:
+	for i in `ls -1 debian/diff/*.diff || :`; do \
+	  patch -p1 <$$i || exit 1; \
+	done
+	touch patch-stamp
+
+build: deb-checkdir build-stamp
+build-stamp: patch-stamp
+	test -r conf-home'{orig}' || cp -f conf-home conf-home'{orig}'
+	echo /usr >conf-home
+	test -r conf-cc'{orig}' || cp conf-cc conf-cc'{orig}'
+	echo 'gcc -O2 -g -include /usr/include/errno.h' >conf-cc
+	$(MAKE)
+	touch build-stamp
+
+clean: deb-checkdir deb-checkuid
+	rm -f `cat TARGETS`
+	test ! -e patch-stamp || \
+	  for i in `ls -1r debian/diff/*.diff || :`; do patch -p1 -R <$$i; done
+	rm -f patch-stamp build-stamp
+	rm -rf '$(DIR)'
+	rm -f debian/files debian/substvars changelog
+	test ! -r conf-home'{orig}' || mv -f conf-home'{orig}' conf-home
+	test ! -r conf-cc'{orig}' || mv conf-cc'{orig}' conf-cc
+
+install: deb-checkdir deb-checkuid build-stamp
+	rm -rf '$(DIR)'
+	# programs
+	install -d -m0755 '$(DIR)'/usr
+	test -r conf-home'{orig}' || cp conf-home conf-home'{orig}'
+	echo '$(DIR)'/usr >conf-home
+	rm -f install instcheck install.o instcheck.o hier.o auto_home.o
+	$(MAKE) install instcheck
+	mv -f conf-home'{orig}' conf-home
+	./install
+	./instcheck
+	for i in axfr-get axfrdns axfrdns-conf dnscache dnscache-conf \
+	 dnsfilter dnsip dnsipq dnsmx dnsname dnsq dnsqr dnstrace dnstxt \
+	 pickdns pickdns-conf pickdns-data random-ip rbldns rbldns-conf \
+	 rbldns-data tinydns tinydns-conf tinydns-data tinydns-edit \
+	 tinydns-get walldns walldns-conf; do \
+	  $(STRIP) -R .comment -R .note '$(DIR)'/usr/bin/$$i || exit 1; \
+	done
+	# etc
+	install -d -m0755 '$(DIR)'/etc
+	install -m0644 debian/dnsroots.global '$(DIR)'/etc/dnsroots.global
+	# manpages
+	for i in 1 8; do \
+	  install -d -m0755 '$(DIR)'/usr/share/man/man$$i; \
+	  for j in debian/djbdns-man/*.$$i; do \
+	    install -m0644 $$j '$(DIR)'/usr/share/man/man$$i/ && \
+	    gzip -9 '$(DIR)'/usr/share/man/man$$i/$${j##*/} || exit 1; \
+	  done; \
+	done
+	# fix up directory permissions
+	chmod g-s '$(DIR)'/usr '$(DIR)'/usr/bin
+	# changelog
+	rm -f changelog && ln -s CHANGES changelog
+
+binary-indep:
+
+binary-arch: install djbdns.deb
+	dpkg-shlibdeps '$(DIR)'/usr/bin/*
+	dpkg-gencontrol -isp -pdjbdns -P'$(DIR)'
+	dpkg -b '$(DIR)' ..
+
+binary: binary-indep binary-arch
+
+.PHONY: patch build clean install binary-indep binary-arch binary
+
+include debian/implicit
