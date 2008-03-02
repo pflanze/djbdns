@@ -1,9 +1,3 @@
-djbdns (1:1.05-2~bpo40+1) etch-backports; urgency=low
-
-  * build for etch.
-
- -- Gerrit Pape <pape@smarden.org>  Sun, 30 Mar 2008 23:08:34 +0000
-
 djbdns (1:1.05-2) unstable; urgency=low
 
   * debian/djbdns.NEWS.Debian: add note that ./run scripts in already
