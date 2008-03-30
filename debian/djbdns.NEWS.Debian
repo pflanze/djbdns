@@ -7,7 +7,10 @@ djbdns (1:1.05-1) unstable; urgency=low
   Please note that this new binary package differs from the package
   created through the djbdns-installer package available in
   Debian/non-free; most notably this package depends on a different
-  version of the daemontools package.
+  version of the daemontools package, and installs the programs into
+  a different path (now /usr/bin/).  The latter change most probably
+  requires adapting the paths in the ./run scripts in already existing
+  service directories.
   
   djbdns-installer is still available, if you don't want to upgrade to
   the new binary package, you should stop the installation, make sure

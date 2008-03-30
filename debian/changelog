@@ -1,3 +1,18 @@
+djbdns (1:1.05-2~bpo40+1) etch-backports; urgency=low
+
+  * build for etch.
+
+ -- Gerrit Pape <pape@smarden.org>  Sun, 30 Mar 2008 23:08:34 +0000
+
+djbdns (1:1.05-2) unstable; urgency=low
+
+  * debian/djbdns.NEWS.Debian: add note that ./run scripts in already
+    existing service directories most probably need to be adapted when
+    upgrading from << 1:1.05.
+  * debian/control: Standards-Version: 3.7.3.0.
+
+ -- Gerrit Pape <pape@smarden.org>  Sun, 02 Mar 2008 23:22:04 +0000
+
 djbdns (1:1.05-1) unstable; urgency=low
 
   * debian/implicit: add proper dependencies to support 'parallel build'
