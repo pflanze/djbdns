@@ -12,10 +12,8 @@ djbdns (1:1.05-1) unstable; urgency=low
   requires adapting the paths in the ./run scripts in already existing
   service directories.
   
-  djbdns-installer is still available, if you don't want to upgrade to
-  the new binary package, you should stop the installation, make sure
-  the djbdns-installer package is installed, and put djbdns on hold, as
-  described in
+  If you don't want to upgrade to the new binary package, you should
+  stop the installation, and put djbdns on hold, as described in
 
    http://www.debian.org/doc/FAQ/ch-pkg_basics.en.html#s-puttingonhold
   

@@ -1,0 +1,9 @@
+dbndns for Debian
+-----------------
+
+dbndns is a Debian fork of the djbdns package, it includes the following
+patches:
+
+ * IPv6 patch: djbdns-1.05-test23.diff.bz2 from http://www.fefe.de/dns/
+
+ -- Gerrit Pape <pape@smarden.org>, Mon, 12 May 2008 17:47:13 +0000

@@ -1,3 +1,29 @@
+djbdns (1:1.05-3) unstable; urgency=low
+
+  * debian/rules: build and install new package dbndns (based on patch
+    by Robert Edmonds, thx).
+  * debian/control: new package dbndns: Debian fork of djbdns (closes:
+    #472771).
+  * dbndns/diff/0001-hier.c-don-t-install-etc-dnsroots.global.diff,
+    dbndns/diff/0002-Apply-fefe-s-djbdns-1.05-test23-ipv6-patch.diff:
+    new; hier.c: don't install /etc/dnsroots.global; apply fefe's
+    djbdns-1.05-test23 ipv6 patch.
+  * debian/dbndns.conffiles: new; /etc/dnsroots.global.
+  * debian/djbdns.NEWS.Debian: no longer talk about djbdns-installer
+    still being available, it's been removed from sid.
+  * debian/dbndns.README.Debian: new; document what patches are applied.
+  * dnscache-run/*: new; sources for new dnscache-run package.
+  * debian/dnscache-run.postinst, debian/dnscache-run.postrm,
+    debian/dnscache-run.preinst, debian/dnscache-run.prerm: new; handle
+    dnscache service.
+  * debian/dnscache-run.conffiles: new.
+  * debian/rules: build and install new package dnscache-run.
+  * debian/control: new package dnscache-run: djbdns dnscache service.
+  * debian/dnscache-run.README.Debian: new.
+  * debian/control: packages djbdns, dbndns: Suggests: dnscache-run.
+
+ -- Gerrit Pape <pape@smarden.org>  Tue, 13 May 2008 20:58:56 +0000
+
 djbdns (1:1.05-2) unstable; urgency=low
 
   * debian/djbdns.NEWS.Debian: add note that ./run scripts in already
