@@ -10,6 +10,3 @@ for i in Gdnscache Gdnslog; do
     adduser --quiet --system --force-badname --shell /bin/false --group \
       --home /nonexistent --no-create-home $i || exit 1;
 done
-
-dnscache-conf Gdnscache Gdnslog /etc/sv/dnscache
-rmdir /etc/sv/dnscache/log/main

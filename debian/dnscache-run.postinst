@@ -2,10 +2,18 @@
 set -e
 
 test "$1" = 'configure' || exit 0
-update-service --add /etc/sv/dnscache
-test -z "$2" || exit 0
-chown Gdnslog:adm /var/log/dnscache
 
+if test ! -r /etc/sv/dnscache/seed; then
+  rm -rf /etc/sv/dnscache/.'{tmp}'.$$
+  dnscache-conf Gdnscache Gdnslog /etc/sv/dnscache/.'{tmp}'.$$
+  mv /etc/sv/dnscache/.'{tmp}'.$$/seed /etc/sv/dnscache/seed
+  rm -rf /etc/sv/dnscache/.'{tmp}'.$$
+fi
+update-service --add /etc/sv/dnscache
+
+test -z "$2" || exit 0
+
+chown Gdnslog:adm /var/log/dnscache
 # adapt resolv.conf
 ! grep 'nameserver 127.0.0.1' /etc/resolv.conf >/dev/null || exit 0
 test -e /etc/resolv.conf || exec echo 'nameserver 127.0.0.1' >/etc/resolv.conf
