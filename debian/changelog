@@ -1,4 +1,4 @@
-djbdns (1:1.05-4+lenny1) stable-security; urgency=high
+djbdns (1:1.05-5) unstable; urgency=high
 
   * debian/diff/0002-djbdns-misformats-some-long-response...diff: new;
     djbdns misformats some long response packets; patch and example
@@ -7,7 +7,7 @@ djbdns (1:1.05-4+lenny1) stable-security; urgency=high
     djbdns misformats some long response packets; patch and example
     attack (closes: #518169, #517631).
 
- -- Gerrit Pape <pape@smarden.org>  Wed, 04 Mar 2009 15:57:16 +0000
+ -- Gerrit Pape <pape@smarden.org>  Wed, 04 Mar 2009 15:55:50 +0000
 
 djbdns (1:1.05-4) unstable; urgency=medium
 
