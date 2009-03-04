@@ -1,3 +1,14 @@
+djbdns (1:1.05-4+lenny1) stable-security; urgency=high
+
+  * debian/diff/0002-djbdns-misformats-some-long-response...diff: new;
+    djbdns misformats some long response packets; patch and example
+    attack (closes: #518169, #517631).
+  * dbndns/diff/0003-djbdns-misformats-some-long-response...diff: new;
+    djbdns misformats some long response packets; patch and example
+    attack (closes: #518169, #517631).
+
+ -- Gerrit Pape <pape@smarden.org>  Wed, 04 Mar 2009 15:57:16 +0000
+
 djbdns (1:1.05-4) unstable; urgency=medium
 
   * debian/dnscache-run.postrm: use daemontools' svc program to take
