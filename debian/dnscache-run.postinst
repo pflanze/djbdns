@@ -9,7 +9,12 @@ if test ! -r /etc/sv/dnscache/seed; then
   mv /etc/sv/dnscache/.'{tmp}'.$$/seed /etc/sv/dnscache/seed
   rm -rf /etc/sv/dnscache/.'{tmp}'.$$
 fi
-update-service --add /etc/sv/dnscache
+
+if test -e /etc/service/dnscache; then
+  sv -v term dnscache || :
+else
+  update-service --add /etc/sv/dnscache
+fi
 
 test -z "$2" || exit 0
 

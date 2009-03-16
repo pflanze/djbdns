@@ -1,7 +1,7 @@
 From b65be17a01f4be5ba90f030dcb7c43704c3c8e7b Mon Sep 17 00:00:00 2001
 From: Matthew Dempsky <matthew@dempsky.org>
 Date: Mon, 2 Mar 2009 04:46:05 +0000
-Subject: [PATCH 3/3] djbdns misformats some long response packets; patch and example attack
+Subject: [PATCH] djbdns misformats some long response packets; patch and example attack
 
 The DNS protocol restricts name compression to point into the first
 16384 bytes of a packet.  Line 18 of response.c from djbdns 1.05
@@ -110,5 +110,5 @@ index ba90c89..33b2fb1 100644
  	byte_copy(name[name_num],dlen,d);
  	name_ptr[name_num] = response_len;
 -- 
-1.6.1.3
+1.6.2
 

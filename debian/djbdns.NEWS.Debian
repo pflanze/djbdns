@@ -1,3 +1,15 @@
+djbdns (1:1.05-6) unstable; urgency=medium
+
+  CVE-2008-4392 reports 'Rapid DNS Poisoning in dnscache', the dnscache
+  program included in djbdns-1.05.  Upstream's comments on this can be
+  read in http://cr.yp.to/djbdns/forgery.html
+
+  The dbndns package, the Debian fork of djbdns, includes a patch that
+  limits concurrent outgoing SOA queries to 20 instead 200 (MAXUDP) to
+  make birthday attacks more difficult.
+
+ -- Gerrit Pape <pape@smarden.org>  Mon, 16 Mar 2009 23:00:06 +0000
+
 djbdns (1:1.05-1) unstable; urgency=low
 
   With the djbdns package being put into the public domain by the

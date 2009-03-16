@@ -1,3 +1,16 @@
+djbdns (1:1.05-6) unstable; urgency=medium
+
+  * dbndns/diff/0004-dnscache.c-allow-a-maximum-of-20-concurrent...diff:
+    new; dnscache.c: allow a maximum of 20 concurrent outgoing SOA
+    queries (#516394).
+  * debian/djbdns.NEWS.Debian: talk about the patch 0004-dnscache.c...
+    being applied to the dbndns package.
+  * debian/dnscache-run.postinst: restart dnscache on package upgrade.
+  * debian/dbndns.README.Debian: document that patches 0003-...diff,
+    0004-...dif are applied to dbndns.
+
+ -- Gerrit Pape <pape@smarden.org>  Mon, 16 Mar 2009 23:42:32 +0000
+
 djbdns (1:1.05-5) unstable; urgency=high
 
   * debian/diff/0002-djbdns-misformats-some-long-response...diff: new;
