@@ -11,7 +11,8 @@ if test ! -r /etc/sv/dnscache/seed; then
 fi
 
 if test -e /etc/service/dnscache; then
-  sv -v term dnscache || :
+  echo 'Restarting dnscache service...'
+  svc -t /etc/service/dnscache || :
 else
   update-service --add /etc/sv/dnscache
 fi

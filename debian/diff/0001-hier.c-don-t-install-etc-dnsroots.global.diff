@@ -1,4 +1,4 @@
-From 8448b4a72b5c5c195699149e7519a2f4d013659c Mon Sep 17 00:00:00 2001
+From e036abc40f9aefc13f06d944f0ec4b2230e9c28c Mon Sep 17 00:00:00 2001
 From: Gerrit Pape <pape@smarden.org>
 Date: Mon, 12 Feb 2001 14:02:49 +0000
 Subject: [PATCH] hier.c: don't install /etc/dnsroots.global
@@ -25,5 +25,5 @@ index 4aef75b..b57dba0 100644
    h(auto_home,-1,-1,02755);
    d(auto_home,"bin",-1,-1,02755);
 -- 
-1.5.3.4
+1.6.0.3
 

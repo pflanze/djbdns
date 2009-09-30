@@ -33,9 +33,16 @@ is
 
 You can run the service under
 .BR svscan (8)
-by creating a symbolic link in the 
+by using the
+.BR update-service (8)
+program on Debian GNU/Linux
+
+update-service --add
+.I D
+
+or by creating a symbolic link in the
 .BR svscan (8)
-directory:
+directory (normally /service or /etc/service), e.g.:
 
 ln -s 
 .I D
@@ -94,6 +101,7 @@ multilog(8),
 axfrdns-conf(8),
 rbldns-conf(8),
 dnscache-conf(8),
-walldns-conf(8)
+walldns-conf(8),
+update-service(8)
 
 http://cr.yp.to/djbdns.html

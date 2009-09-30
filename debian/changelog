@@ -1,3 +1,16 @@
+djbdns (1:1.05-7) unstable; urgency=low
+
+  * debian/dnscache-run.postinst: use the svc program instead of sv to
+    restart dnscache on upgrade (thx ben; closes: #528973).
+  * debian/diff/0003-dnstracesort.sh-don-t-use-deprecated...diff: new;
+    dnstracesort.sh: don't use deprecated "+number" sort(1) option (thx
+    Shai Rosenfeld; closes: #486935).
+  * debian/djbdns-man/*-conf.8: refer to the update-service(8) program
+    for enabling services, mark creating a symlink manually as example
+    (closes: #542613).
+
+ -- Gerrit Pape <pape@smarden.org>  Wed, 30 Sep 2009 19:49:20 +0000
+
 djbdns (1:1.05-6) unstable; urgency=medium
 
   * dbndns/diff/0004-dnscache.c-allow-a-maximum-of-20-concurrent...diff:
