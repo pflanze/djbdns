@@ -44,7 +44,8 @@ Conflicts: djbdns
 Provides: djbdns
 Suggests: dnscache-run
 Description: Debian fork of djbdns, a collection of Domain Name System tools
- dbndns is a fork of the djbdns package, including a patch to provide IPv6
+ dbndns is a fork of the djbdns package, including patches requested by
+ Debian developers and Debian users, e.g. a patch to provide IPv6
  functionality.
  .
  The djbdns package provides software for all the fundamental DNS

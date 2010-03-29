@@ -1,3 +1,16 @@
+djbdns (1:1.05-8) unstable; urgency=low
+
+  * debian/dbndns.README.Debian: copy information from
+    debian/djbdns.README.Debian (closes: #575473); clarify purpose of
+    the package.
+  * debian/control: dbndns: adapt long description to clarify the
+    purpose of the package.
+  * debian/dnscache-run.postrm: use -f option to deluser; don't complain
+    if dnscache service already is removed; no longer remove the Gdnslog
+    user on purge.
+
+ -- Gerrit Pape <pape@smarden.org>  Mon, 29 Mar 2010 23:53:46 +0000
+
 djbdns (1:1.05-7) unstable; urgency=low
 
   * debian/dnscache-run.postinst: use the svc program instead of sv to
